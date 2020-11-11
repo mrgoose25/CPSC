@@ -91,6 +91,7 @@ public class BinaryTree {
 		}
 		
 		int returnValue = root.info;
+		root.info = findNode(size).info;
 		percolateDown(root);
 		
 		BinaryNode parent = findNode(size/2);
@@ -106,8 +107,7 @@ public class BinaryTree {
 	}
 	
 	private void percolateDown(BinaryNode node) {
-		root.info = findNode(size).info;
-		BinaryNode parent = root;
+		BinaryNode parent = node;
 		BinaryNode child;
 		if(parent.right == null || parent.right.info > parent.left.info) {
 			child = parent.left;
